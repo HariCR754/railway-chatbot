@@ -1,0 +1,82 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hi
+      - Hello
+      - Hey
+      - Good morning
+      - Good afternoon
+      - Good evening
+
+  - intent: goodbye
+    examples: |
+      - Bye
+      - Goodbye
+      - See you later
+      - Talk to you later
+      - Have a nice day
+
+  - intent: book_ticket
+    examples: |
+      - I want to book a ticket
+      - Book a train ticket
+      - Need to reserve seats
+      - I'd like to travel from [Mumbai](departure) to [Delhi](destination)
+      - Book me a ticket to [Chennai](destination)
+      - I need tickets for [3](passenger_count) people
+
+  - intent: ask_schedule
+    examples: |
+      - What's the schedule for train [12345](train_number)?
+      - When does the train to [Bangalore](destination) leave?
+      - Show me timings for [Rajdhani Express](train_number)
+      - What time does the train depart?
+
+  - intent: ask_fare
+    examples: |
+      - What's the fare to [Kolkata](destination)?
+      - How much for [2AC](class_type) class?
+      - What's the ticket price?
+      - Cost of ticket from [Pune](departure) to [Hyderabad](destination)
+
+  - intent: ask_cancellation
+    examples: |
+      - What's the cancellation policy?
+      - How much refund will I get?
+      - Can I cancel my ticket?
+      - What if I need to cancel?
+
+  - intent: provide_details
+    examples: |
+      - [Mumbai](departure)
+      - [Delhi](destination)
+      - [15-08-2023](date)
+      - [2](passenger_count)
+      - [3AC](class_type)
+      - [12345](train_number)
+
+  - intent: affirm
+    examples: |
+      - Yes
+      - Yeah
+      - Correct
+      - That's right
+      - Sure
+      - Absolutely
+
+  - intent: deny
+    examples: |
+      - No
+      - Nope
+      - Not correct
+      - That's wrong
+      - Incorrect
+
+  - intent: thank_you
+    examples: |
+      - Thanks
+      - Thank you
+      - Appreciate it
+      - Thanks a lot

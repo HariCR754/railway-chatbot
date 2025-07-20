@@ -1,0 +1,146 @@
+version: "3.1"
+
+stories:
+  - story: happy path booking
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: book_ticket
+      - action: utter_ask_departure
+      - intent: provide_details
+        entities:
+          - departure
+      - slot_was_set:
+          - departure
+      - action: utter_ask_destination
+      - intent: provide_details
+        entities:
+          - destination
+      - slot_was_set:
+          - destination
+      - action: utter_ask_date
+      - intent: provide_details
+        entities:
+          - date
+      - slot_was_set:
+          - date
+      - action: utter_ask_passenger_count
+      - intent: provide_details
+        entities:
+          - passenger_count
+      - slot_was_set:
+          - passenger_count
+      - action: utter_ask_class_type
+      - intent: provide_details
+        entities:
+          - class_type
+      - slot_was_set:
+          - class_type
+      - action: utter_confirm_booking
+      - intent: affirm
+      - action: action_generate_pnr
+      - action: utter_booking_complete
+      - intent: thank_you
+      - action: utter_goodbye
+
+  - story: ask schedule
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_schedule
+      - action: utter_ask_train_number
+      - intent: provide_details
+        entities:
+          - train_number
+      - slot_was_set:
+          - train_number
+      - action: action_lookup_schedule
+      - action: utter_provide_schedule
+      - intent: thank_you
+      - action: utter_goodbye
+
+  - story: ask fare
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_fare
+      - action: utter_ask_departure
+      - intent: provide_details
+        entities:
+          - departure
+      - slot_was_set:
+          - departure
+      - action: utter_ask_destination
+      - intent: provide_details
+        entities:
+          - destination
+      - slot_was_set:
+          - destination
+      - action: utter_ask_class_type
+      - intent: provide_details
+        entities:
+          - class_type
+      - slot_was_set:
+          - class_type
+      - action: action_lookup_fare
+      - action: utter_provide_fare
+      - intent: thank_you
+      - action: utter_goodbye
+
+  - story: cancellation policy
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_cancellation
+      - action: utter_cancellation_policy
+      - intent: thank_you
+      - action: utter_goodbye
+
+  - story: show available trains
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: book_ticket
+      - action: utter_ask_departure
+      - intent: provide_details
+        entities:
+          - departure
+      - slot_was_set:
+          - departure
+      - action: utter_ask_destination
+      - intent: provide_details
+        entities:
+          - destination
+      - slot_was_set:
+          - destination
+      - action: action_show_trains
+      - action: utter_ask_train_number
+      - intent: provide_details
+        entities:
+          - train_number
+      - slot_was_set:
+          - train_number
+      - action: utter_ask_date
+      - intent: provide_details
+        entities:
+          - date
+      - slot_was_set:
+          - date
+      - action: utter_ask_passenger_count
+      - intent: provide_details
+        entities:
+          - passenger_count
+      - slot_was_set:
+          - passenger_count
+      - action: utter_ask_class_type
+      - intent: provide_details
+        entities:
+          - class_type
+      - slot_was_set:
+          - class_type
+      - action: utter_confirm_booking
+      - intent: affirm
+      - action: action_generate_pnr
+      - action: utter_booking_complete
+      - intent: thank_you
+      - action: utter_goodbye

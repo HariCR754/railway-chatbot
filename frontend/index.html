@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RailBuddy - Your Train Booking Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="logo-container">
+          <img src="images/train-logo.png" alt="RailBuddy Logo" class="logo" />
+          <div class="header-text">
+            <h1>RailBuddy</h1>
+            <p>Your Personal Train Booking Assistant</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+      </header>
+
+      <main class="chat-container">
+        <div class="chat-header">
+          <div class="bot-info">
+            <div class="bot-avatar">
+              <img src="images/bot-avatar.png" alt="RailBuddy Avatar" />
+              <span class="online-dot"></span>
+            </div>
+            <div class="bot-details">
+              <h2>RailBuddy</h2>
+              <p class="status">Online</p>
+            </div>
+          </div>
+          <div class="chat-controls">
+            <button id="clear-chat" title="Clear conversation">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <!-- Messages will be inserted here -->
+        </div>
+
+        <div class="input-area">
+          <div class="quick-replies" id="quick-replies">
+            <!-- Quick replies will appear here -->
+          </div>
+          <div class="message-input">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Type your message here..."
+              autocomplete="off"
+            />
+            <button id="send-button" class="send-btn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <button id="mic-button" class="mic-btn">
+              <i class="fas fa-microphone"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <p>
+          © 2023 RailBuddy | Made with <i class="fas fa-heart"></i> for
+          travelers
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - book_ticket
+  - ask_schedule
+  - ask_fare
+  - ask_cancellation
+  - provide_details
+  - thank_you
+
+entities:
+  - departure
+  - destination
+  - date
+  - train_number
+  - passenger_count
+  - class_type
+
+slots:
+  departure:
+    type: text
+  destination:
+    type: text
+  date:
+    type: text
+  train_number:
+    type: text
+  passenger_count:
+    type: text
+  class_type:
+    type: text
+
+responses:
+  utter_greet:
+    - text: "🚂 Welcome to RailBuddy! I'm your personal ticket assistant. How can I help you today?"
+    - text: "Hi there! I'm RailBuddy, here to make your train travel easy. What do you need?"
+
+  utter_ask_departure:
+    - text: "Which station are you departing from?"
+
+  utter_ask_destination:
+    - text: "Where would you like to go?"
+
+  utter_ask_date:
+    - text: "When are you planning to travel? (DD-MM-YYYY)"
+
+  utter_ask_passenger_count:
+    - text: "How many passengers will be traveling?"
+
+  utter_ask_class_type:
+    - text: "Which class would you prefer? We have:\n1. 1AC (First AC)\n2. 2AC (Second AC)\n3. 3AC (Third AC)\n4. SL (Sleeper)\n5. General"
+
+  utter_confirm_booking:
+    - text: "Let me confirm:\n🚉 From: {departure}\n🏁 To: {destination}\n📅 Date: {date}\n👥 Passengers: {passenger_count}\n💺 Class: {class_type}\n\nIs this correct?"
+
+  utter_booking_complete:
+    - text: "🎉 Your booking is confirmed!\n🔢 PNR: RAIL{random_num}\n💵 Amount Paid: ₹{fare}\n\nYou'll receive an SMS with details. Safe travels!"
+
+  utter_provide_schedule:
+    - text: "🚆 Train {train_number} ({train_name}) schedule:\n\n📍 Departs {departure} at {departure_time}\n📍 Arrives {destination} at {arrival_time}\n⏱ Duration: {duration}"
+
+  utter_provide_fare:
+    - text: "💰 Fare for {class_type} from {departure} to {destination}:\n\nBase Fare: ₹{base_fare}\n+ Reservation: ₹{reservation_charge}\n+ GST: ₹{gst}\n------------------\n💵 Total: ₹{total_fare}"
+
+  utter_cancellation_policy:
+    - text: "📝 Cancellation Policy:\n\n- 48+ hrs before: 25% charge\n- 12-48 hrs before: 50% charge\n- <12 hrs before: No refund"
+
+  utter_default:
+    - text: "I didn't understand that. Can you rephrase?"
+    - text: "Could you say that differently?"
+
+actions:
+  - action_validate_booking
+  - action_generate_pnr
+  - action_lookup_schedule
+  - action_lookup_fare
+
+session_config:
+  session_expiration_time: 60
